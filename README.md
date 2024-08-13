@@ -2,8 +2,8 @@
 ## AIM
 To perform the color conversion between RGB, BGR, HSV, and YCbCr color models.
 ## Algorithm:
-### Developed By: H.Berjin Shabeck
-### Register Number: 212222240018
+### Developed By: Ponguru Aasrith Sairam
+### Register Number: 212223240116
 ### Program:
 
 ### i) Read and display the image
