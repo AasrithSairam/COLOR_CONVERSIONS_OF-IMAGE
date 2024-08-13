@@ -66,7 +66,7 @@ cv2.destroyAllWindows()
 ### v)Cut and paste portion of image
 ```
   import cv2
-  image=cv2.imread('pic.jpg',1)
+  image=cv2.imread('coke.jpg',1)
   image=cv2.resize(image,(400,400))
   tag =image[130:200,110:190]
   image[110:180,120:200] = tag
@@ -82,8 +82,8 @@ cv2.destroyAllWindows()
 ### vi) BGR and RGB to HSV and GRAY
 ```
 import cv2
-img = cv2.imread('pic.jpg',1)
-img = cv2.resize(img,(300,200))
+img = cv2.imread('coke.jpg',1)
+img = cv2.resize(img,(300,300))
 cv2.imshow('Original Image',img)
 hsv1 = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
 cv2.imshow('BGR2HSV',hsv1)
@@ -109,7 +109,7 @@ cv2.destroyAllWindows()
 ### vii) HSV to RGB and BGR
 ```
 import cv2
-img = cv2.imread('pic.jpg')
+img = cv2.imread('coke.jpg')
 img = cv2.resize(img,(300,200))
 img = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
 cv2.imshow('Original HSV Image',img)
@@ -121,14 +121,17 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 ## Output:
+![image](https://github.com/user-attachments/assets/b44c3fa9-d5b1-47d6-91b3-94ded1360348) ![image](https://github.com/user-attachments/assets/29a9ccac-b9ad-4fc6-a786-5b3d9f2eb84a) ![image](https://github.com/user-attachments/assets/b2ddb6bd-e3fc-4db8-9c7c-384c069e162d)
+
+
 
 
 
 ### viii) RGB and BGR to YCrCb
 ```
 import cv2
-img = cv2.imread('pic.jpg')
-img = cv2.resize(img,(300,200))
+img = cv2.imread('coke.jpg')
+img = cv2.resize(img,(300,300))
 cv2.imshow('Original RGB Image',img)
 YCrCb1 = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
 cv2.imshow('RGB-2-YCrCb',YCrCb1)
@@ -138,6 +141,9 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 ## Output:
+![image](https://github.com/user-attachments/assets/501a2326-e4e0-445a-88cb-8970ff923c95) ![image](https://github.com/user-attachments/assets/281c026e-b6c0-4e52-bf51-50d777f65dad) ![image](https://github.com/user-attachments/assets/7fe6cd3b-d830-4b63-8da1-9d1488a3e4b4)
+
+
 
 
 
@@ -160,6 +166,10 @@ cv2.destroyAllWindows()
 ```
 
 ## Output:
+![image](https://github.com/user-attachments/assets/fa3ca2d4-4b83-49bf-ae7c-a1bedc5cdcef) ![image](https://github.com/user-attachments/assets/384f2f3c-b002-469f-88ee-cd75c9e17f9a) ![image](https://github.com/user-attachments/assets/57b3f0fb-30a0-4760-b089-db66c8a6a688) ![image](https://github.com/user-attachments/assets/bad467ed-a348-4fa3-9110-29d7b5254c9d)
+
+
+
 
 
 
@@ -181,6 +191,10 @@ cv2.destroyAllWindows()
 ```
 
 ## Output:
+![image](https://github.com/user-attachments/assets/e17399fa-d54e-4ac8-aa6b-e003992fca91) ![image](https://github.com/user-attachments/assets/fc9024bf-b4a0-4657-b643-3911f8559efe) ![image](https://github.com/user-attachments/assets/8c849028-287b-426b-ac79-6119986820a2) ![image](https://github.com/user-attachments/assets/4ce019c5-2ff3-403c-a9cf-226c19d4db7d)
+
+
+
 
 
 
