@@ -151,7 +151,7 @@ cv2.destroyAllWindows()
 ### ix) Split and merge RGB Image
 ```
 import cv2
-img = cv2.imread('pic.jpg',1)
+img = cv2.imread('coke.jpg',1)
 img = cv2.resize(img,(300,200))
 R = img[:,:,2]
 G = img[:,:,1]
@@ -177,7 +177,7 @@ cv2.destroyAllWindows()
 ### x) Split and merge HSV Image
 ```
 import cv2
-img = cv2.imread("pic.jpg",1)
+img = cv2.imread("coke.jpg",1)
 img = cv2.resize(img,(300,200))
 img=cv2.cvtColor(img,cv2.COLOR_RGB2HSV)
 H,S,V=cv2.split(img)
