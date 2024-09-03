@@ -73,9 +73,67 @@ cv2.destroyAllWindows()
 
 
 ### ii)Draw Shapes and Add Text
+#### draw line top-left to bottom-right
+```
+import cv2
+img = cv2.imread("coke.jpg")
+img = cv2.resize(img, (400, 400))
+res = cv2.line(img, (0, 0), (399, 399), (200, 100, 205), 10)
+cv2.imshow('Image Window', res)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/0955ee4d-ecb0-4d39-9d62-1dfe33816817)
+#### draw a circle at the center of the image
+```
+import cv2
+# Create a blank white image of size 400x400
+img = cv2.imread("coke.jpg")
+img = cv2.resize(img, (400, 400))
+center = (200, 200)  # (width // 2, height // 2)
+radius = 100
+color = (255, 0, 0)
+thickness = 2
+cv2.circle(img, center, radius, color, thickness)
+cv2.imshow('Image with Circle', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/4aa79dae-3ad8-458f-9035-0704e94556b2)
 
-<br>
-<br>
+#### draw a rectangle
+```
+import cv2
+img = cv2.imread("coke.jpg")
+img = cv2.resize(img, (400, 400))
+top_left = (50, 50)  # (x, y) coordinates for the top-left corner
+bottom_right = (350, 350)  # (x, y) coordinates for the bottom-right corner
+color = (0, 255, 0)
+thickness = 3
+cv2.rectangle(img, top_left, bottom_right, color, thickness)
+cv2.imshow('Image with Rectangle', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/213d0a3e-015d-4cb8-bba2-a3eb8163a90d)
+
+#### write "OpenCV Drawing" on top-left
+```
+import cv2
+img = cv2.imread("coke.jpg")
+img = cv2.resize(img, (400, 400))
+text = "OpenCV Drawing"
+text_position = (10, 30)  # (x, y) coordinates for the text position
+font = cv2.FONT_HERSHEY_SIMPLEX  # Font type
+font_scale = 1  # Font scale factor
+font_color = (255, 0, 0)  # BGR format, e.g., blue
+font_thickness = 2  # Thickness of the text
+cv2.putText(img, text, text_position, font, font_scale, font_color, font_thickness)
+cv2.imshow('Image with Rectangle and Text', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/e78fa738-7b37-4a62-9461-7e205f383c25)
 
 ### iii)Image Color Conversion
 ```
@@ -125,24 +183,129 @@ cv2.destroyAllWindows()
 ![image](https://github.com/user-attachments/assets/739877b7-ca13-4fea-bca9-f405a18181c6)
 
 ### iv)Access and Manipulate Image Pixels
-<br>
-<br>
+#### access and print the value of pixel at (100,100)
+```
+import cv2
+img = cv2.imread("coke.jpg")
+img = cv2.resize(img, (400, 400))
+x, y = 100, 100
+pixel_value = img[y, x]  # Note that OpenCV uses (row, column) indexing
+print(f"Pixel value at (100, 100): {pixel_value}")
+cv2.imshow('Image', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/91159ce2-db61-4bda-ac8c-a485265c4456)
+
+#### modify colour of pixel at (200,200) to white.
+```
+import cv2
+img = cv2.imread("coke.jpg")
+img = cv2.resize(img, (400, 400))
+x, y = 200, 200
+new_color = (255, 255, 255)  # White
+img[y, x] = new_color
+cv2.imwrite('modified_image.jpg', img)
+cv2.imshow('Modified Image', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/2c01a5f8-de52-42fb-a379-1471db4b1784)
+
 
 ### v)Image Resizing
-<br>
-<br>
+### resize image to half of its size
+```
+import cv2
+img = cv2.imread("coke.jpg")
+if img is None:
+    print("Error: Image not found.")
+else:
+    img_resized_to_400 = cv2.resize(img, (400, 400))
+    img_resized_to_half = cv2.resize(img_resized_to_400, (200, 200))
+    cv2.imshow('Final Resized Image', img_resized_to_half)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/f01b732d-23c6-4446-8d0f-9b3579795e9d)
 
 ### vi)Image Cropping
-<br>
-<br>
+```
+import cv2
+img = cv2.imread("coke.jpg")
+if img is None:
+    print("Error: Image not found.")
+else:
+    img_resized = cv2.resize(img, (400, 400))
+    top_left_x, top_left_y = 50, 50
+    crop_width, crop_height = 100, 100
+    if (top_left_x + crop_width <= 400) and (top_left_y + crop_height <= 400):
+        cropped_img = img_resized[top_left_y:top_left_y + crop_height, top_left_x:top_left_x + crop_width]
+        cv2.imshow('Cropped Image', cropped_img)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+    else:
+        print("Error: Cropping region is out of bounds.")
+```
+![image](https://github.com/user-attachments/assets/952d0e2b-2926-4a77-9cf1-4b396cac057f)
 
 ### vii)Image Flipping
-<br>
-<br>
+
+#### horizontal
+```
+import cv2
+img = cv2.imread("coke.jpg")
+if img is None:
+    print("Error: Image not found.")
+else:
+    img_resized = cv2.resize(img, (400, 400))
+    img_flipped_horizontal = cv2.flip(img_resized, 1)
+    cv2.imshow('Flipped Image Horizontally', img_flipped_horizontal)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/b91402d1-96a2-493e-ae92-60d11e8dde93)
+
+#### vertical
+```
+import cv2
+img = cv2.imread("coke.jpg")
+
+if img is None:
+    print("Error: Image not found.")
+else:
+    img_resized = cv2.resize(img, (400, 400))
+    img_flipped_vertical = cv2.flip(img_resized, 0)
+    cv2.imshow('Flipped Image Vertically', img_flipped_vertical)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+```
+![image](https://github.com/user-attachments/assets/e9bbc6e8-c691-490f-a8f2-22dab81baea4)
+
 
 ### viii)Write and Save the Modified Image
-<br>
-<br>
+```
+import cv2
+
+# Load the original image
+img = cv2.imread("coke.jpg")
+
+# Check if the image was loaded successfully
+if img is None:
+    print("Error: Image not found.")
+else:
+    # Resize the image to 400x400
+    img_resized = cv2.resize(img, (400, 400))
+
+    # Save the resized image to a file
+    output_file = "resized_coke.jpg"
+    cv2.imwrite(output_file, img_resized)
+
+    print(f"Resized image saved to {output_file}")
+```
+![image](https://github.com/user-attachments/assets/d407b24a-47fe-423c-96b8-cb555aa42f19)
+
 
 
 
